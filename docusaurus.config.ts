@@ -145,18 +145,22 @@ const config: Config = {
 
 // Add webpack fallbacks for TinaCMS dependencies
 config.plugins = config.plugins || [];
-config.plugins.push({
-  name: 'tinacms-webpack-fallbacks',
-  configureWebpack: () => ({
-    resolve: {
-      fallback: {
-        path: require.resolve('path-browserify'),
-        url: require.resolve('url'),
-        util: require.resolve('util'),
-        process: require.resolve('process/browser'),
-      },
+config.plugins.push(function(context, options) {
+  return {
+    name: 'tinacms-webpack-fallbacks',
+    configureWebpack() {
+      return {
+        resolve: {
+          fallback: {
+            path: require.resolve('path-browserify'),
+            url: require.resolve('url'),
+            util: require.resolve('util'),
+            process: require.resolve('process/browser'),
+          },
+        },
+      };
     },
-  }),
+  };
 });
 
 export default config;
