@@ -1,21 +1,21 @@
+// tina/config.ts
 import { defineConfig } from "tinacms";
-
-// Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "master";
-
-export default defineConfig({
+var branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "master";
+var config_default = defineConfig({
   branch,
-  clientId: "d9b6f5be-4f96-4b35-b25a-56279ce4db33", // Get this from tina.io
-  token: "fa3744d795a0477c3bb07f3cb97f7334b4c9b82c", // Get this from tina.io
+  clientId: "d9b6f5be-4f96-4b35-b25a-56279ce4db33",
+  // Get this from tina.io
+  token: "fa3744d795a0477c3bb07f3cb97f7334b4c9b82c",
+  // Get this from tina.io
   build: {
     outputFolder: "admin",
-    publicFolder: "static",
+    publicFolder: "static"
   },
   media: {
     tina: {
       mediaRoot: "static/img",
-      publicFolder: "static",
-    },
+      publicFolder: "static"
+    }
   },
   schema: {
     collections: [
@@ -29,25 +29,25 @@ export default defineConfig({
             type: "string",
             name: "slug",
             label: "Slug",
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "title",
             label: "Title",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
             type: "rich-text",
             name: "body",
             label: "Body",
-            isBody: true,
+            isBody: true
           },
           {
             type: "string",
             name: "description",
-            label: "Description",
+            label: "Description"
           },
           {
             type: "object",
@@ -58,32 +58,32 @@ export default defineConfig({
               {
                 type: "string",
                 name: "name",
-                label: "Name",
+                label: "Name"
               },
               {
                 type: "string",
                 name: "title",
-                label: "Title",
+                label: "Title"
               },
               {
                 type: "string",
                 name: "url",
-                label: "URL",
+                label: "URL"
               },
               {
                 type: "string",
                 name: "image_url",
-                label: "Image URL",
+                label: "Image URL"
               }
-            ],
+            ]
           },
           {
             type: "string",
             name: "tags",
             label: "Tags",
-            list: true,
-          },
-        ],
+            list: true
+          }
+        ]
       },
       {
         name: "doc",
@@ -94,28 +94,31 @@ export default defineConfig({
           {
             type: "number",
             name: "sidebar_position",
-            label: "Sidebar Position",
+            label: "Sidebar Position"
           },
           {
             type: "string",
             name: "title",
             label: "Title",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
             type: "string",
             name: "description",
-            label: "Description",
+            label: "Description"
           },
           {
             type: "rich-text",
             name: "body",
             label: "Body",
-            isBody: true,
-          },
-        ],
-      },
-    ],
-  },
+            isBody: true
+          }
+        ]
+      }
+    ]
+  }
 });
+export {
+  config_default as default
+};

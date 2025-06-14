@@ -1,0 +1,23 @@
+fragment PostParts on Post {
+  __typename
+  slug
+  title
+  body
+  description
+  authors {
+    __typename
+    name
+    title
+    url
+    image_url
+  }
+  tags
+}
+
+fragment DocParts on Doc {
+  __typename
+  sidebar_position
+  title
+  description
+  body
+}
