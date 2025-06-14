@@ -153,7 +153,7 @@ config.plugins.push(function(context, options) {
         resolve: {
           fallback: {
             path: require.resolve('path-browserify'),
-            url: require.resolve('url'),
+            url: false, // Disable the url polyfill as it's causing issues
             util: require.resolve('util'),
             process: require.resolve('process/browser'),
           },
