@@ -1,0 +1,19 @@
+{
+  "build": {
+    "command": "npm run build",
+    "output": "build",
+    "environment": {
+      "NODE_VERSION": "18"
+    }
+  },
+  "routes": [
+    {
+      "pattern": "/admin",
+      "script": "admin/index.js"
+    }
+  ],
+  "env": {
+    "TINA_CLIENT_ID": "d9b6f5be-4f96-4b35-b25a-56279ce4db33",
+    "TINA_TOKEN": "fa3744d795a0477c3bb07f3cb97f7334b4c9b82c"
+  }
+}
